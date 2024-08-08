@@ -1,9 +1,4 @@
 ﻿using Consonant_substring_sums.SubstringSumsResponse;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Consonant_substring_sums.SubstringSums
 {
@@ -72,6 +67,16 @@ namespace Consonant_substring_sums.SubstringSums
                 Description = innerString,
                 Result = substringNumericValues.Max()
             };
+        }
+
+        public int ReturnMaxSubstringSum(string innerString)
+        {
+            return innerString.Split(_delimiterChars, StringSplitOptions.RemoveEmptyEntries).Max(x => x.Sum(c => c - 96));
+        }
+
+        public int SubstringsMaxSum(string str)
+        {
+            return str.ToLowerInvariant().Split(_delimiterChars, StringSplitOptions.RemoveEmptyEntries).Max(x => x.Sum(c => c - 'a' + 1));
         }
 
         public void ShowResult(SubstringSumResult result)
